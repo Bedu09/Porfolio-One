@@ -1,0 +1,29 @@
+.skills {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.skills__line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.skills__box {
+    width: 8rem;
+    background-color: white;
+}
+
+.skills__box:hover {
+    box-shadow: 5px 5px 12px #a29999f9;
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px){
+    .skills__line {
+        margin-left: 8px;
+    }
+     
+
+}

@@ -1,0 +1,51 @@
+.title__div{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 0px;
+    gap: 2rem;
+}
+
+.title__bio {
+    font-size: 2rem;
+}
+
+.title__subsection {
+    line-height: 19px;
+    font-weight: normal;
+    text-align: justify;
+
+}
+
+.title__network {
+    display: flex;
+    padding-left: 0;
+    gap: 2rem;
+}
+
+.about__paragraph{
+    line-height: 19px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.title__profile {
+    width: 20rem;
+}
+
+@media screen and (max-width: 768px){
+    .title__div{
+        align-items: center;
+        flex-direction: column;
+    }      
+    .title__profile {
+        width: 10rem;
+    }
+    .title__container {
+        font-size: 12px;
+    }
+    .title__bio {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,48 @@
+body {
+    background-color: #F5F5F5;
+  }
+  
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  .menu__logo {
+    width: 1.5rem;
+  }
+  
+  .menu__header {
+    font-size: 13px;
+    color: #464646;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+  }
+
+  .menu__nav {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu__list {
+
+    display: flex;
+    gap: 1rem;
+    margin-right: 10px;
+  }
+
+  .menu__list__item__contato{
+    font-weight: 700;
+  }
+
+  @media screen and (max-width: 768px){
+    .menu__list__item {
+      display: none;
+    }
+  
+  }

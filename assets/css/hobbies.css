@@ -1,0 +1,28 @@
+.hobbies {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hobbies__line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.hobbies__box {
+    width: 8rem;
+    background-color: white;
+}
+
+.hobbies__box:hover {
+    box-shadow: 5px 5px 12px #a29999f9;
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px){
+    .hobbies__line {
+        margin-left: 8px;
+    }
+
+}
