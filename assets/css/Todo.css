@@ -1,0 +1,22 @@
+:root{
+    --cor-de-fundo: #F5F5F5;
+    --cor-de-link: #000;
+ }
+ 
+ body {
+     margin: 0 5%;
+     box-sizing: border-box;
+     background-color: var(--cor-de-fundo) ;
+     font-family: 'Raleway';
+     color: #464646;
+     padding: 0;
+     line-height: 1.2;
+ }
+ ol, ul,li {
+     list-style: none;
+ }
+ 
+ a{
+     text-decoration: none;
+     color: var(--cor-de-link);
+ }
