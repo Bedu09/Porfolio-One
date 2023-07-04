@@ -1,4 +1,4 @@
-:root{
+:root {
     --cor-de-fundo: #F5F5F5;
     --cor-de-link: #000;
 }
@@ -7,7 +7,7 @@ body {
      margin: 0 5%;
      box-sizing: border-box;
      background-color: var(--cor-de-fundo) ;
-     font-family: 'Raleway';
+     font-family: "Raleway";
      color: #464646;
      padding: 0;
      line-height: 1.2;
