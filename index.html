@@ -284,7 +284,47 @@
                 <p>2024</p>
             </div>
         </section>
-     <!-- Script del documento JavaScript -->
+        
+<!-- Script del documento JavaScript -->
 <script src="validacion.js"></script>
+        
+<!-- Incluir el SDK de EmailJS -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function() {
+      emailjs.init("Nr5SR3X84WJ8X_UI2"); // Reemplaza TU_PUBLIC_KEY con tu Public Key de EmailJS
+   })();
+</script>
+
+<!-- Tu código JavaScript personalizado -->
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+  const contactForm = document.getElementById('contactForm');
+
+  contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Recoge los datos del formulario
+    const formData = {
+      nombre: contactForm.nombre.value,
+      email: contactForm.email.value,
+      asunto: contactForm.asunto.value,
+      mensaje: contactForm.mensaje.value
+    };
+
+    // Envía los datos a través de EmailJS
+    emailjs.send('service_c5jlafo', 'template_jhnssok', formData)
+      .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        alert('Mensaje enviado exitosamente.');
+        contactForm.reset(); // Resetea el formulario
+      }, function(error) {
+        console.error('FAILED...', error);
+        alert('Hubo un error al enviar el formulario. Por favor, intente nuevamente.');
+      });
+  });
+});
+</script>
+
 </body>
 </html>
