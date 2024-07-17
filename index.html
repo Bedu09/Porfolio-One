@@ -264,12 +264,12 @@
               <h2 class="formcontato__title">Contacto</h2>
               <h3 class="formcontato__subtext">¿Quieres contactarme?</h3>
               <h3 class="formcontato__subtext">Complete el siguiente formulario y me pondré en contacto con usted lo antes posible.</h3>
-              <form class="formcontato__form" id="contactForm" name="form">
+              <form class="formcontato__form" id="form" name="form">
                 <input class="formcontato__input" type="text" name="nombre" placeholder="Nombre" required>
                 <input class="formcontato__input" type="email" name="email" placeholder="E-mail" required>
                 <input class="formcontato__input" type="text" name="asunto" placeholder="Asunto" required>
                 <textarea class="formcontato__textarea" rows="5" cols="40" id="mensaje" name="mensaje" placeholder="Mensaje" required></textarea>
-                <button type="submit" class="formcontato__botao">Enviar mensaje</button>
+                <button type="submit" class="formcontato__botao" id="button">Enviar mensaje</button>
               </form>
             </div>
           </div>
@@ -285,44 +285,35 @@
             </div>
         </section>
         
-<!-- Script del documento JavaScript -->
-<script src="validacion.js"></script>
-        
 <!-- Incluir el SDK de EmailJS -->
-<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script type="text/javascript">
-   (function() {
-      emailjs.init('Nr5SR3X84WJ8X_UI2'); // Reemplazar TU_PUBLIC_KEY por Key de EmailJS
-   })();
+  emailjs.init('Nr5SR3X84WJ8X_UI2')
 </script>
-
+        
 <!-- código JavaScript personalizado -->
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function () {
-  const contactForm = document.getElementById('contactForm');
+<script>
+const btn = document.getElementById('button');
 
-  contactForm.addEventListener('submit', function (event) {
-    event.preventDefault();
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
 
-    // Recoge los datos del formulario
-    const formData = {
-      nombre: contactForm.nombre.value,
-      email: contactForm.email.value,
-      asunto: contactForm.asunto.value,
-      mensaje: contactForm.mensaje.value
-    };
+   btn.value = 'Sending...';
 
-    // Envía los datos a través de EmailJS
-    emailjs.send('service_c5jlafo', 'template_jhnssok', formData)
-      .then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Mensaje enviado exitosamente.');
-        contactForm.reset(); // Resetea el formulario
-      }, function(error) {
-        console.error('FAILED...', error);
-        alert('Hubo un error al enviar el formulario. Por favor, intente nuevamente.');
-      });
-  });
+   const serviceID = 'default_service';
+   const templateID = 'template_jhnssok';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Email Enviado!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
 });
 </script>
 
