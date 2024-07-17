@@ -66,6 +66,17 @@
     transition: all 0.4s;
 }
 
+.formcontato__botao:hover {
+    background-color: #1f5bb5;
+    border-color: #1f5bb5;
+}
+
+.formcontato__botao:active {
+    background-color: #17468a;
+    border-color: #17468a;
+    transform: scale(0.98);
+}
+
 .formcontato__img {
     width: 31rem;
 }
