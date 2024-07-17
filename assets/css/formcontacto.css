@@ -71,11 +71,13 @@
     border-color: #1f5bb5;
 }
 
-.formcontato__botao:active {
+.formcontato__botao:active,
+.formcontato__botao.pressed {
     background-color: #17468a;
     border-color: #17468a;
     transform: scale(0.98);
 }
+
 
 .formcontato__img {
     width: 31rem;
