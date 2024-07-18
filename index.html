@@ -295,27 +295,62 @@
         
 <!-- código JavaScript personalizado -->
 <script>
-const btn = document.getElementById('button');
+document.addEventListener('DOMContentLoaded', function () {
+    const btn = document.getElementById('button');
+    const form = document.getElementById('form');
 
-document.getElementById('form')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
 
-   btn.value = 'Sending...';
+        // Añadir la clase 'pressed' para simular el estado presionado
+        btn.classList.add('pressed');
+        btn.value = 'Sending...';
 
-   const serviceID = 'default_service';
-   const templateID = 'template_jhnssok';
+        const serviceID = 'default_service';
+        const templateID = 'template_jhnssok';
 
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn.value = 'Send Email';
-      alert('Email Enviado!');
-    }, (err) => {
-      btn.value = 'Send Email';
-      alert(JSON.stringify(err));
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.value = 'Send Email';
+                btn.classList.remove('pressed'); // Quitar la clase 'pressed'
+                alert('Email Enviado!');
+            }, (err) => {
+                btn.value = 'Send Email';
+                btn.classList.remove('pressed'); // Quitar la clase 'pressed'
+                alert(JSON.stringify(err));
+            });
+    });
+
+    btn.addEventListener('mousedown', function() {
+        btn.classList.add('pressed');
+    });
+
+    btn.addEventListener('mouseup', function() {
+        btn.classList.remove('pressed');
     });
 });
-</script>
 
+//const btn = document.getElementById('button');
+
+//document.getElementById('form')
+ //.addEventListener('submit', function(event) {
+ //  event.preventDefault();
+
+  // btn.value = 'Sending...';
+
+   //const serviceID = 'default_service';
+   //const templateID = 'template_jhnssok';
+
+   //emailjs.sendForm(serviceID, templateID, this)
+    //.then(() => {
+     // btn.value = 'Send Email';
+      //alert('Email Enviado!');
+   // }, (err) => {
+      //btn.value = 'Send Email';
+      //alert(JSON.stringify(err));
+    //});
+//});
+</script>
+ 
 </body>
 </html>
